@@ -1,0 +1,27 @@
+{
+  "name": "matrimoniosemplice-video-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Video studio: da un prompt in italiano a un MP4 verificato per MatrimonioSemplice",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "make": "node cli/index.ts make",
+    "preview": "node cli/index.ts preview",
+    "render": "node cli/index.ts render",
+    "qa": "node cli/index.ts qa",
+    "batch": "node cli/index.ts batch",
+    "doctor": "node cli/index.ts doctor",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "puppeteer-core": "^25.12.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}

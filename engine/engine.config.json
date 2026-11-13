@@ -1,0 +1,15 @@
+{
+  "autoApprove": false,
+  "maxCalls": 8,
+  "maxRounds": 3,
+  "maxWallMinutes": 45,
+  "segmentTimeoutMinutes": 10,
+  "schemaRetries": 2,
+  "durationSec": { "min": 5, "max": 60 },
+  "formats": {
+    "9:16": { "w": 1080, "h": 1920, "fps": 30 },
+    "16:9": { "w": 1920, "h": 1080, "fps": 30 }
+  },
+  "audio": { "default": "synth", "targetLUFS": -14, "truePeakDb": -1 },
+  "chromePath": null
+}
