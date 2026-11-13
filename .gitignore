@@ -9,3 +9,8 @@ _refs/
 .cache/
 __pycache__/
 .venv/
+engine/*/fonts/
+engine/*/out/
+engine/*/events.json
+engine/*/stills/
+engine/*/logo.svg
