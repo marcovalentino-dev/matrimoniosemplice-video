@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MatrimonioSemplice — anteprima brand</title>
+<style>
+  @font-face {
+    font-family: "Playfair Display";
+    src: url("../assets/fonts/playfair-display/PlayfairDisplay%5Bwght%5D.ttf") format("truetype");
+    font-weight: 400 900; font-style: normal;
+  }
+  @font-face {
+    font-family: "Playfair Display";
+    src: url("../assets/fonts/playfair-display/PlayfairDisplay-Italic%5Bwght%5D.ttf") format("truetype");
+    font-weight: 400 900; font-style: italic;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/inter/Inter%5Bopsz,wght%5D.ttf") format("truetype");
+    font-weight: 100 900; font-style: normal;
+  }
+
+  :root {
+    --cream: #FFF8F5; --parchment: #F3ECE8; --blush: #E8B4B8; --blush-light: #FEF0F1;
+    --rose: #D8A7B1; --champagne: #7A5C38; --gold-light: #D4B896; --gold-pale: #F0E8E0;
+    --border: #EFEAE7; --white: #FFFFFF; --ink: #1E1E1E; --muted: #4A4A4A; --subtle: #666666;
+    --shadow-soft: 0 2px 16px rgba(0,0,0,0.04);
+    --shadow-soft-md: 0 4px 24px rgba(0,0,0,0.06);
+    --shadow-soft-lg: 0 8px 40px rgba(0,0,0,0.08);
+    --shadow-blush: 0 4px 20px rgba(232,180,184,0.30);
+    --shadow-blush-lg: 0 12px 40px rgba(232,180,184,0.22);
+    --heading: "Playfair Display", Georgia, serif;
+    --body: "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font-family: var(--body); font-size: 16px; line-height: 1.6;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: 72px 24px 96px; }
+  section { margin-bottom: 72px; }
+  .eyebrow {
+    font: 600 12px/1.4 var(--body); text-transform: uppercase;
+    letter-spacing: 0.18em; color: var(--champagne); margin: 0 0 12px;
+  }
+  h1, h2, h3 { font-family: var(--heading); font-weight: 600; margin: 0 0 16px; color: var(--ink); }
+  h1 { font-size: clamp(44px, 8vw, 88px); line-height: 1.05; font-weight: 400; }
+  h1 em { font-style: italic; }
+  h2 { font-size: clamp(32px, 5vw, 56px); line-height: 1.1; font-weight: 400; }
+  h3 { font-size: 28px; line-height: 1.2; }
+  p { margin: 0 0 16px; color: var(--muted); max-width: 60ch; }
+  .small { font-size: 14px; line-height: 1.5; }
+
+  .hero {
+    background: linear-gradient(160deg, #F9EEF2, #FFF8F5, #F3ECE8, #EDE4DF);
+    border-radius: 20px; padding: 72px 40px; position: relative; overflow: hidden;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(60px); z-index: 0; }
+  .orb.blush { width: 360px; height: 360px; top: -120px; left: -100px; background: radial-gradient(circle, rgba(232,180,184,0.20), transparent 70%); }
+  .orb.rose  { width: 380px; height: 380px; bottom: -140px; right: -100px; background: radial-gradient(circle, rgba(216,167,177,0.16), transparent 70%); }
+  .orb.warm  { width: 300px; height: 300px; top: 35%; right: -80px; background: radial-gradient(circle, rgba(198,162,126,0.12), transparent 70%); }
+  .shimmer {
+    background: linear-gradient(90deg, #D8A7B1, #E8B4B8, #C6A27E, #E8B4B8, #D8A7B1);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+  .sw { border-radius: 20px; border: 1px solid var(--border); background: var(--white); overflow: hidden; box-shadow: var(--shadow-soft); }
+  .sw .chip { height: 84px; border-bottom: 1px solid var(--border); }
+  .sw .meta { padding: 12px 14px; font-size: 13px; line-height: 1.4; }
+  .sw .meta b { display: block; font-weight: 600; color: var(--ink); }
+  .sw .meta span { color: var(--subtle); }
+
+  .row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .btn {
+    font: 600 14px/1 var(--body); letter-spacing: 0.04em; color: var(--ink);
+    border-radius: 9999px; padding: 16px 32px; cursor: pointer; transition: background .3s ease, box-shadow .3s ease;
+  }
+  .btn-primary { background: var(--blush); border: 1.5px solid var(--blush); box-shadow: var(--shadow-blush); }
+  .btn-primary:hover { background: var(--rose); border-color: var(--rose); }
+  .btn-secondary { background: transparent; border: 1.5px solid var(--blush); }
+  .btn-secondary:hover { background: var(--blush); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+    box-shadow: var(--shadow-soft); padding: 28px; position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(circle at top left, rgba(232,180,184,0.07), transparent 60%);
+  }
+  .card > * { position: relative; }
+  .badge { display: inline-block; background: var(--blush-light); color: var(--ink); font: 500 12px/1 var(--body); text-transform: uppercase; letter-spacing: 0.06em; padding: 6px 10px; border-radius: 8px; }
+
+  .shadows { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; }
+  .sh { background: var(--white); border-radius: 20px; padding: 24px 16px; text-align: center; font-size: 13px; color: var(--muted); }
+  .type-row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .type-row .label { font: 500 12px/1.4 var(--body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--subtle); }
+  @media (max-width: 600px) { .type-row { grid-template-columns: 1fr; gap: 4px; } .hero { padding: 48px 24px; } }
+</style>
+</head>
+<body>
+<main>
+
+  <section class="hero">
+    <div class="orb blush"></div><div class="orb rose"></div><div class="orb warm"></div>
+    <p class="eyebrow">Anteprima brand</p>
+    <h1>Il tuo matrimonio, <em class="shimmer">semplice</em></h1>
+    <p>Pagina di prova dei token del design system: colori, tipografia, bottoni, card ed eyebrow. Sfondo cover hero con orbi ambientali e titolo shimmer.</p>
+    <div class="row">
+      <button class="btn btn-primary">Bottone primario</button>
+      <button class="btn btn-secondary">Bottone secondario</button>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Palette</p>
+    <h2>Colori</h2>
+    <div class="swatches" id="swatches"></div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Tipografia</p>
+    <h2>Playfair Display <em>&amp;</em> Inter</h2>
+    <div class="type-row"><span class="label">Display grande</span><span style="font:400 56px/1.1 var(--heading)">Il tuo sito</span></div>
+    <div class="type-row"><span class="label">Display piccolo</span><span style="font:400 40px/1.15 var(--heading)">Conferme in un tap</span></div>
+    <div class="type-row"><span class="label">H3 corsivo</span><span style="font:italic 400 28px/1.2 var(--heading)">Una lettera su carta pregiata</span></div>
+    <div class="type-row"><span class="label">Eyebrow</span><span class="eyebrow" style="margin:0">Etichetta sopra il titolo</span></div>
+    <div class="type-row"><span class="label">Body 16</span><span style="color:var(--muted)">Testo corrente in Inter Regular, interlinea 1,6 per leggibilità su mobile.</span></div>
+    <div class="type-row"><span class="label">Body small 14</span><span class="small" style="color:var(--muted)">Descrizioni e note, Inter 14 px.</span></div>
+    <div class="type-row"><span class="label">Bottone</span><span style="font:600 14px/1 var(--body);letter-spacing:.04em">CREA IL TUO SITO</span></div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Componenti</p>
+    <h2>Card ed eyebrow</h2>
+    <div class="cards">
+      <article class="card">
+        <p class="eyebrow">Eyebrow</p>
+        <h3>Titolo card</h3>
+        <p class="small">Card bianca, bordo #EFEAE7, raggio 20 px, ombra soft e leggero overlay blush in alto a sinistra.</p>
+        <span class="badge">Badge</span>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Eyebrow</p>
+        <h3>Secondo esempio</h3>
+        <p class="small">Il testo resta ink e muted su sfondo chiaro; il blush non è mai sfondo di testo piccolo.</p>
+        <div class="row"><button class="btn btn-primary">Azione</button></div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Ombre e forme</p>
+    <h2>Ombre</h2>
+    <div class="shadows" style="background:var(--parchment);padding:32px;border-radius:20px">
+      <div class="sh" style="box-shadow:var(--shadow-soft)">soft</div>
+      <div class="sh" style="box-shadow:var(--shadow-soft-md)">soft-md</div>
+      <div class="sh" style="box-shadow:var(--shadow-soft-lg)">soft-lg</div>
+      <div class="sh" style="box-shadow:var(--shadow-blush)">blush</div>
+      <div class="sh" style="box-shadow:var(--shadow-blush-lg)">blush-lg</div>
+    </div>
+  </section>
+
+</main>
+<script>
+  const colors = [
+    ["cream","#FFF8F5","Sfondo primario"],["parchment","#F3ECE8","Sfondo alternato"],
+    ["blush","#E8B4B8","Accento primario"],["blush-light","#FEF0F1","Badge e tag"],
+    ["rose","#D8A7B1","Accento secondario"],["champagne","#7A5C38","Dettaglio oro"],
+    ["gold-light","#D4B896","Decorazioni"],["gold-pale","#F0E8E0","Sfondi caldi"],
+    ["border","#EFEAE7","Bordi"],["white","#FFFFFF","Card"],
+    ["ink","#1E1E1E","Testo primario"],["muted","#4A4A4A","Testo secondario"],["subtle","#666666","Testo terziario"]
+  ];
+  document.getElementById("swatches").innerHTML = colors.map(([n,h,r]) =>
+    `<div class="sw"><div class="chip" style="background:${h}"></div><div class="meta"><b>${n}</b><span>${h} · ${r}</span></div></div>`
+  ).join("");
+</script>
+</body>
+</html>
