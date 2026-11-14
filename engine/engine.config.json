@@ -1,5 +1,5 @@
 {
-  "autoApprove": false,
+  "autoApprove": true,
   "maxCalls": 8,
   "maxRounds": 3,
   "maxWallMinutes": 45,

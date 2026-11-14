@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Video studio: da un prompt in italiano a un MP4 verificato per MatrimonioSemplice",
-  "engines": { "node": ">=22.18" },
+  "engines": {
+    "node": ">=22.18"
+  },
   "scripts": {
     "make": "node cli/index.ts make",
     "preview": "node cli/index.ts preview",
@@ -12,8 +14,12 @@
     "qa": "node cli/index.ts qa",
     "batch": "node cli/index.ts batch",
     "doctor": "node cli/index.ts doctor",
+    "theme-test": "node cli/index.ts theme-test",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "catalog": "node cli/index.ts catalog",
+    "direct": "node cli/index.ts direct",
+    "scenes-test": "node cli/index.ts scenes-test"
   },
   "dependencies": {
     "puppeteer-core": "^25.12.0",

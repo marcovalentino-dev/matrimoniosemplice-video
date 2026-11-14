@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "briefHash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "format": "9:16",
+  "size": { "w": 1080, "h": 1920 },
+  "fps": 30,
+  "durationSec": 10,
+  "theme": { "palette": "rosa-romantico" },
+  "shots": [
+    {
+      "id": "s1",
+      "start": 0,
+      "end": 5,
+      "scene": "HookText",
+      "props": { "eyebrow": "RSVP", "headline": "Niente app.\nNiente *account.*" },
+      "onScreenText": [
+        { "text": "RSVP", "role": "eyebrow", "source": { "kind": "claim", "id": "rsvp-senza-account" } },
+        { "text": "Niente app. Niente account.", "role": "headline", "source": { "kind": "claim", "id": "rsvp-senza-account" } }
+      ],
+      "transitionIn": { "type": "fromCream", "dur": 0.6 },
+      "camera": { "move": "pushIn", "amount": 0.04 },
+      "notes": "Gancio. Fixture di test del render: non è un video da pubblicare."
+    },
+    {
+      "id": "s2",
+      "start": 5,
+      "end": 10,
+      "scene": "EndCard",
+      "props": {},
+      "onScreenText": [
+        { "text": "Crea il tuo sito matrimonio", "role": "cta", "source": { "kind": "cta" } }
+      ],
+      "transitionIn": { "type": "dissolve", "dur": 0.6 },
+      "notes": "Chiusura con CTA e URL ufficiali."
+    }
+  ],
+  "music": { "mood": "caldo-minimale", "bpm": 96, "fadeIn": 1, "fadeOut": 2 }
+}

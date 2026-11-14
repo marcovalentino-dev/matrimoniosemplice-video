@@ -508,7 +508,7 @@ L'approvazione resta un file (`approval.json`), ma può essere scritta in due mo
 - Con `E_GAP`, `E_CLAIM`, `E_PRICE_UNVERIFIED` o segnaposto non c'è auto-approve: il motore si ferma anche in modalità auto.
 - Nei giri di correzione QA, in modalità auto le modifiche a testo/claim passano di nuovo dal lint e, se pulito, si riapprovano `auto`; altrimenti stop.
 - `approval.json` e `manifest.json` registrano `approvedBy: "auto"|"user"` e l'hash dello storyboard, così si vede sempre cosa è stato approvato da una persona.
-- Default di `engine.config.json`: `autoApprove: false`. `batch` può essere lanciato con `--auto-approve` esplicito.
+- Default di `engine.config.json`: `autoApprove: true` dal 2026-11-14, come richiesto per `make`: senza `--preview` il flusso prosegue da solo, con le salvaguardie sopra. `--preview` si ferma sempre al piano e `--approve` è l'approvazione manuale; non esiste un flag `--auto-approve`. `batch` approva da solo con le stesse salvaguardie.
 - **Nota su CLAUDE.md:** la regola "storyboard con approvazione esplicita dell'utente prima di scrivere codice" resta vera per la modalità manuale e per **sviluppo del motore**. L'auto-approve è una tua deroga esplicita per i video generati. Suggerisco di aggiungere una riga a CLAUDE.md che lo dica (non l'ho modificato).
 
 ### Prezzi (nota)

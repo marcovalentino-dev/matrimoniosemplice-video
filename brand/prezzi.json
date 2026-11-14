@@ -1,0 +1,8 @@
+{
+  "$description": "Prezzi mostrabili nei video. Unica fonte per PriceCard (engine/SPEC.md §7). Aggiornare a mano se il sito cambia.",
+  "valuta": "EUR",
+  "mensile": 12,
+  "unaTantum": 79,
+  "fonte": "confermato dall'utente il 2026-11-13",
+  "note": "Valori da brand/02_TIPO_DI_PROGETTO.md. Non indicano cosa includa ciascun piano."
+}

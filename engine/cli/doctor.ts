@@ -48,7 +48,7 @@ export function doctor(configPath: string): Check[] {
   const chrome = findChrome(cfg.chromePath);
   checks.push({ name: "Chrome", ok: !!chrome, detail: chrome ?? "non trovato (imposta CHROME_PATH o chromePath)", required: true });
   const py = run("python", ["--version"]);
-  checks.push({ name: "Python (audio)", ok: py.ok, detail: py.ok ? firstLine(py.stdout || py.stderr) : "non trovato", required: true });
+  checks.push({ name: "Python (solo prototipo dal-caos)", ok: py.ok, detail: py.ok ? firstLine(py.stdout || py.stderr) : "non trovato (serve solo per rigenerare il prototipo storico: il motore sintetizza la musica con ffmpeg)", required: false });
   const claude = run("claude", ["--version"]);
   checks.push({ name: "Claude CLI", ok: claude.ok, detail: claude.ok ? firstLine(claude.stdout) : "non trovato (serve per brief, regista, QA)", required: true });
   return checks;

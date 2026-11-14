@@ -20,6 +20,7 @@ Video e testi a schermo sono sempre in **italiano**.
 
 ## Flusso di lavoro
 1. Prima di scrivere codice: storyboard con timecode e approvazione esplicita dell'utente.
+   Deroga dell'utente (2026-11-13): per i video generati dal motore `engine/` è ammessa l'auto-approvazione (`--auto-approve`), solo con lint dello storyboard pulito e senza segnaposto; vedi `engine/SPEC.md` §16. Resta valida la regola per lo sviluppo del motore e per i video fatti a mano.
 2. Prima dell'export: anteprima, contact sheet, auto-revisione.
 3. Non dichiarare un video finito se l'MP4 non esiste e `ffprobe` non conferma durata, risoluzione e fps.
 

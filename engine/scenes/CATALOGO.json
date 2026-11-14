@@ -1,0 +1,1885 @@
+[
+  {
+    "name": "TitleCard",
+    "summary": "Titolo centrato con sottotitolo su sfondo hero con orbi ambientali.",
+    "mockup": false,
+    "duration": {
+      "min": 5.5,
+      "recommended": 6.5
+    },
+    "durationRule": "max(testo leggibile, ultima entrata + 1,5 s): con sottotitolo l'ultima entrata è a 1,7 s",
+    "cues": [],
+    "props": [
+      {
+        "name": "eyebrow",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Etichetta sopra il titolo (Inter 600, maiuscolo, champagne)"
+      },
+      {
+        "name": "title",
+        "type": "testo (≤ 80 car.)",
+        "required": true,
+        "def": "",
+        "desc": "Titolo in Playfair Display. `*parola*` = corsivo, `\\n` = a capo"
+      },
+      {
+        "name": "subtitle",
+        "type": "testo (≤ 120 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Sottotitolo in Inter, colore muted"
+      },
+      {
+        "name": "shimmer",
+        "type": "testo",
+        "required": false,
+        "def": "",
+        "desc": "Sottostringa del titolo con sfumatura shimmer. Al massimo una per video"
+      }
+    ],
+    "preview": {
+      "props": {
+        "eyebrow": "MatrimonioSemplice",
+        "title": "Il tuo sito matrimonio\n*in pochi minuti.*",
+        "subtitle": "Conferme semplici, lista nozze senza commissioni."
+      },
+      "t": 2.6
+    },
+    "notes": [
+      "Lo shimmer va usato su una sola headline per video (BRAND_VIDEO §2).",
+      "Titolo: massimo 80 caratteri, circa 3 righe in 9:16."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "description": "Etichetta sopra il titolo (Inter 600, maiuscolo, champagne)",
+          "type": "string",
+          "maxLength": 40
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Titolo in Playfair Display. `*parola*` = corsivo, `\\n` = a capo"
+        },
+        "subtitle": {
+          "description": "Sottotitolo in Inter, colore muted",
+          "type": "string",
+          "maxLength": 120
+        },
+        "shimmer": {
+          "description": "Sottostringa del titolo con sfumatura shimmer. Al massimo una per video",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  },
+  {
+    "name": "HookText",
+    "summary": "Gancio: eyebrow + headline Playfair che entra parola per parola, riga di supporto opzionale.",
+    "mockup": false,
+    "duration": {
+      "min": 5,
+      "recommended": 5.5
+    },
+    "durationRule": "parole a 0,1 s l'una dal secondo 0,3; poi + 1,5 s di pausa. Con `sub`, +0,7 s",
+    "cues": [],
+    "props": [
+      {
+        "name": "eyebrow",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Etichetta sopra il gancio"
+      },
+      {
+        "name": "headline",
+        "type": "testo (≤ 70 car.)",
+        "required": true,
+        "def": "",
+        "desc": "Gancio in Playfair Display, entra parola per parola. `*parola*` = corsivo, `\\n` = a capo"
+      },
+      {
+        "name": "sub",
+        "type": "testo (≤ 100 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Riga di supporto in Inter, muted"
+      },
+      {
+        "name": "shimmer",
+        "type": "testo",
+        "required": false,
+        "def": "",
+        "desc": "Sottostringa della headline con sfumatura shimmer. Al massimo una per video"
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "def": "\"left\"",
+        "desc": "Allineamento del testo"
+      }
+    ],
+    "preview": {
+      "props": {
+        "eyebrow": "RSVP",
+        "headline": "Niente app.\nNiente *account.*",
+        "sub": "Gli invitati confermano dal link del sito."
+      },
+      "t": 2.6
+    },
+    "notes": [
+      "Gancio da 3-6 parole: 2,5-3 s. Massimo 2 righe di testo corrente per inquadratura."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "description": "Etichetta sopra il gancio",
+          "type": "string",
+          "maxLength": 40
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 70,
+          "description": "Gancio in Playfair Display, entra parola per parola. `*parola*` = corsivo, `\\n` = a capo"
+        },
+        "sub": {
+          "description": "Riga di supporto in Inter, muted",
+          "type": "string",
+          "maxLength": 100
+        },
+        "shimmer": {
+          "description": "Sottostringa della headline con sfumatura shimmer. Al massimo una per video",
+          "type": "string"
+        },
+        "align": {
+          "default": "left",
+          "description": "Allineamento del testo",
+          "type": "string",
+          "enum": [
+            "left",
+            "center"
+          ]
+        }
+      },
+      "required": [
+        "headline"
+      ]
+    }
+  },
+  {
+    "name": "ChatChaos",
+    "summary": "Chat di gruppo generica che si riempie di messaggi sovrapposti (il caos delle conferme).",
+    "mockup": true,
+    "duration": {
+      "min": 6.5,
+      "recommended": 8
+    },
+    "durationRule": "0,9 s + messaggi × passo (0,3 / 0,42 / 0,6 s per densità alta / media / bassa) + 1,5 s",
+    "cues": [
+      "ping"
+    ],
+    "props": [
+      {
+        "name": "title",
+        "type": "testo (≤ 30 car.)",
+        "required": false,
+        "def": "\"Gruppo Matrimonio\"",
+        "desc": "Nome della chat (dato fittizio)"
+      },
+      {
+        "name": "messages",
+        "type": "{ text: testo (≤ 40 car.); side: \"l\" | \"r\" }[] (3–16)",
+        "required": false,
+        "def": "[{\"text\":\"ci sono\",\"side\":\"r\"},{\"text\":\"forse\",\"side\":\"l\"},{\"text\":\"n…",
+        "desc": "Messaggi in ordine di arrivo (fittizi). `l` = sinistra, `r` = destra"
+      },
+      {
+        "name": "density",
+        "type": "\"bassa\" | \"media\" | \"alta\"",
+        "required": false,
+        "def": "\"alta\"",
+        "desc": "Quanto si sovrappongono e quanto in fretta arrivano"
+      },
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Titolo sopra la chat (Playfair)"
+      }
+    ],
+    "preview": {
+      "props": {
+        "headline": "Dal caos delle\nconferme…"
+      },
+      "t": 5.4
+    },
+    "notes": [
+      "Messaggi e nomi sono fittizi: nello storyboard vanno con `source: mock`.",
+      "Le bolle si sovrappongono di proposito ma con la stessa dolcezza del resto: niente flash, niente scossoni."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "default": "Gruppo Matrimonio",
+          "description": "Nome della chat (dato fittizio)",
+          "type": "string",
+          "maxLength": 30
+        },
+        "messages": {
+          "default": [
+            {
+              "text": "ci sono",
+              "side": "r"
+            },
+            {
+              "text": "forse",
+              "side": "l"
+            },
+            {
+              "text": "non so",
+              "side": "r"
+            },
+            {
+              "text": "porto un amico?",
+              "side": "l"
+            },
+            {
+              "text": "ci sono! o forse no",
+              "side": "r"
+            },
+            {
+              "text": "scusate che giorno era?",
+              "side": "l"
+            },
+            {
+              "text": "io sono vegetariana",
+              "side": "r"
+            },
+            {
+              "text": "+1?",
+              "side": "l"
+            },
+            {
+              "text": "domani vi dico",
+              "side": "r"
+            },
+            {
+              "text": "ma i bimbi?",
+              "side": "l"
+            },
+            {
+              "text": "ci sono",
+              "side": "r"
+            },
+            {
+              "text": "boh",
+              "side": "l"
+            },
+            {
+              "text": "forse ci sono",
+              "side": "r"
+            }
+          ],
+          "description": "Messaggi in ordine di arrivo (fittizi). `l` = sinistra, `r` = destra",
+          "minItems": 3,
+          "maxItems": 16,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "side": {
+                "type": "string",
+                "enum": [
+                  "l",
+                  "r"
+                ]
+              }
+            },
+            "required": [
+              "text",
+              "side"
+            ]
+          }
+        },
+        "density": {
+          "default": "alta",
+          "description": "Quanto si sovrappongono e quanto in fretta arrivano",
+          "type": "string",
+          "enum": [
+            "bassa",
+            "media",
+            "alta"
+          ]
+        },
+        "headline": {
+          "description": "Titolo sopra la chat (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        }
+      }
+    }
+  },
+  {
+    "name": "SpreadsheetChaos",
+    "summary": "Foglio di calcolo disordinato (celle evidenziate a caso, note a margine) che scorre lentamente.",
+    "mockup": true,
+    "duration": {
+      "min": 3.5,
+      "recommended": 5.5
+    },
+    "durationRule": "minimo 3 s; con `caption` 3,1 s. Più lungo = scorrimento più lento (copre al massimo 1250 px)",
+    "cues": [
+      "key"
+    ],
+    "props": [
+      {
+        "name": "title",
+        "type": "testo (≤ 30 car.)",
+        "required": false,
+        "def": "\"Invitati_FINALE_v3\"",
+        "desc": "Nome del file (dato fittizio)"
+      },
+      {
+        "name": "columns",
+        "type": "testo (≤ 14 car.)[] (2–5)",
+        "required": false,
+        "def": "[\"Nome\",\"Menu\",\"Allergie\",\"+1\"]",
+        "desc": "Intestazioni di colonna (fittizie)"
+      },
+      {
+        "name": "rows",
+        "type": "testo (≤ 18 car.)[][] (8–∞)",
+        "required": false,
+        "def": "[[\"Anna R.\",\"carne\",\"noci!!\",\"1?\"],[\"Luca B\",\"pesce\",\"\",\"no\"],[\"Sara\"…",
+        "desc": "Righe di celle (fittizie), una cella per colonna"
+      },
+      {
+        "name": "caption",
+        "type": "testo (≤ 70 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Didascalia in card sopra il foglio (Inter)"
+      }
+    ],
+    "preview": {
+      "props": {
+        "caption": "Menu, allergie, +1…\novunque."
+      },
+      "t": 4.2
+    },
+    "notes": [
+      "Dati del foglio tutti fittizi (`source: mock`).",
+      "Lo scorrimento si adatta alla durata dello shot: copre al massimo 1250 px."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "default": "Invitati_FINALE_v3",
+          "description": "Nome del file (dato fittizio)",
+          "type": "string",
+          "maxLength": 30
+        },
+        "columns": {
+          "default": [
+            "Nome",
+            "Menu",
+            "Allergie",
+            "+1"
+          ],
+          "description": "Intestazioni di colonna (fittizie)",
+          "minItems": 2,
+          "maxItems": 5,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 14
+          }
+        },
+        "rows": {
+          "default": [
+            [
+              "Anna R.",
+              "carne",
+              "noci!!",
+              "1?"
+            ],
+            [
+              "Luca B",
+              "pesce",
+              "",
+              "no"
+            ],
+            [
+              "Sara",
+              "vedi chat",
+              "arachidi",
+              ""
+            ],
+            [
+              "Paolo G.",
+              "",
+              "noci!!",
+              ""
+            ],
+            [
+              "Elena M",
+              "pesce?",
+              "",
+              "2 (bimbi)"
+            ],
+            [
+              "D. Ferri",
+              "carne/pesce",
+              "arachidi",
+              "+1"
+            ],
+            [
+              "Chiara",
+              "",
+              "noci!!",
+              "famiglia"
+            ],
+            [
+              "Marta Gallo",
+              "boh",
+              "",
+              " 1"
+            ],
+            [
+              "zio Franco",
+              "carne",
+              "arachidi",
+              ""
+            ],
+            [
+              "Giorgia",
+              "veg?",
+              "noci!!",
+              "sì?"
+            ],
+            [
+              "Matteo",
+              "vegano?",
+              "",
+              "+1"
+            ],
+            [
+              "Irene",
+              "vegetariano",
+              "arachidi",
+              "+1"
+            ],
+            [
+              "Nonna Rosa",
+              "bimbi",
+              "noci!!",
+              "forse +1"
+            ],
+            [
+              "Stefano",
+              "pesce",
+              "",
+              "+2"
+            ],
+            [
+              "Valentina",
+              "celiaca",
+              "arachidi",
+              "boh"
+            ],
+            [
+              "Fabio",
+              "carne",
+              "noci!!",
+              "1?"
+            ],
+            [
+              "Laura +fam",
+              "pesce",
+              "",
+              "no"
+            ],
+            [
+              "Andrea",
+              "vedi chat",
+              "arachidi",
+              ""
+            ],
+            [
+              "Silvia",
+              "",
+              "noci!!",
+              ""
+            ],
+            [
+              "Marco B.",
+              "pesce?",
+              "",
+              "2 (bimbi)"
+            ],
+            [
+              "Roberta",
+              "carne/pesce",
+              "arachidi",
+              "+1"
+            ],
+            [
+              "Enrico",
+              "",
+              "noci!!",
+              "famiglia"
+            ],
+            [
+              "Claudia",
+              "boh",
+              "",
+              " 1"
+            ],
+            [
+              "Tommaso",
+              "carne",
+              "arachidi",
+              ""
+            ],
+            [
+              "Alice",
+              "veg?",
+              "noci!!",
+              "sì?"
+            ],
+            [
+              "Gianni",
+              "vegano?",
+              "",
+              "+1"
+            ],
+            [
+              "Monica",
+              "vegetariano",
+              "arachidi",
+              "+1"
+            ],
+            [
+              "Riccardo",
+              "bimbi",
+              "noci!!",
+              "forse +1"
+            ],
+            [
+              "Federica",
+              "pesce",
+              "",
+              "+2"
+            ],
+            [
+              "Simone",
+              "celiaca",
+              "arachidi",
+              "boh"
+            ]
+          ],
+          "description": "Righe di celle (fittizie), una cella per colonna",
+          "minItems": 8,
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 18
+            }
+          }
+        },
+        "caption": {
+          "description": "Didascalia in card sopra il foglio (Inter)",
+          "type": "string",
+          "maxLength": 70
+        }
+      }
+    }
+  },
+  {
+    "name": "PhoneMockupSite",
+    "summary": "Telefono con il sito matrimonio (testata, storia, programma...) che scorre lentamente. Dati fittizi.",
+    "mockup": true,
+    "duration": {
+      "min": 5.5,
+      "recommended": 6.5
+    },
+    "durationRule": "1,2 s + (altezza da scorrere ÷ 240 px/s) + 1,2 s; minimo 4 s. Ogni sezione in più allunga di circa 1,5 s",
+    "cues": [],
+    "props": [
+      {
+        "name": "names",
+        "type": "[testo (≤ 16 car.), testo (≤ 16 car.)]",
+        "required": false,
+        "def": "[\"Giulia\",\"Marco\"]",
+        "desc": "Nomi della coppia (fittizi)"
+      },
+      {
+        "name": "date",
+        "type": "testo (≤ 24 car.)",
+        "required": false,
+        "def": "\"12 settembre\"",
+        "desc": "Data (fittizia)"
+      },
+      {
+        "name": "place",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "\"Villa dei Cipressi · Toscana\"",
+        "desc": "Luogo (fittizio)"
+      },
+      {
+        "name": "sections",
+        "type": "\"storia\" | \"programma\" | \"galleria\" | \"fondoRegalo\" | \"countdown\" | \"viaggio\" | \"rsvp\"[] (1–4)",
+        "required": false,
+        "def": "[\"storia\",\"programma\",\"rsvp\"]",
+        "desc": "Sezioni del sito mostrate scorrendo, in ordine"
+      },
+      {
+        "name": "eyebrow",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Etichetta sopra la headline"
+      },
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Didascalia accanto al telefono (Playfair)"
+      },
+      {
+        "name": "shimmer",
+        "type": "testo",
+        "required": false,
+        "def": "",
+        "desc": "Sottostringa della headline con shimmer. Al massimo una per video"
+      }
+    ],
+    "preview": {
+      "props": {
+        "headline": "Il tuo sito matrimonio,\npronto in pochi minuti.",
+        "sections": [
+          "storia",
+          "programma",
+          "rsvp"
+        ]
+      },
+      "t": 3.4
+    },
+    "notes": [
+      "Nomi, data e luogo sono fittizi (`source: mock`).",
+      "Sezioni disponibili: storia, programma, galleria, fondoRegalo, countdown, viaggio, rsvp. Il fondo regalo dice solo \"lista nozze senza commissioni\"."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "names": {
+          "default": [
+            "Giulia",
+            "Marco"
+          ],
+          "description": "Nomi della coppia (fittizi)",
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string",
+              "maxLength": 16
+            },
+            {
+              "type": "string",
+              "maxLength": 16
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "date": {
+          "default": "12 settembre",
+          "description": "Data (fittizia)",
+          "type": "string",
+          "maxLength": 24
+        },
+        "place": {
+          "default": "Villa dei Cipressi · Toscana",
+          "description": "Luogo (fittizio)",
+          "type": "string",
+          "maxLength": 40
+        },
+        "sections": {
+          "default": [
+            "storia",
+            "programma",
+            "rsvp"
+          ],
+          "description": "Sezioni del sito mostrate scorrendo, in ordine",
+          "minItems": 1,
+          "maxItems": 4,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "storia",
+              "programma",
+              "galleria",
+              "fondoRegalo",
+              "countdown",
+              "viaggio",
+              "rsvp"
+            ]
+          }
+        },
+        "eyebrow": {
+          "description": "Etichetta sopra la headline",
+          "type": "string",
+          "maxLength": 40
+        },
+        "headline": {
+          "description": "Didascalia accanto al telefono (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "shimmer": {
+          "description": "Sottostringa della headline con shimmer. Al massimo una per video",
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "RsvpFlow",
+    "summary": "Telefono: l'invitato apre il sito, tocca la presenza, compila il modulo e conferma. Nessun account.",
+    "mockup": true,
+    "duration": {
+      "min": 7.5,
+      "recommended": 9
+    },
+    "durationRule": "fisso: tre tap a 1,5 / 3,0 / 4,3 s, conferma a 5,6 s + 1,5 s di pausa",
+    "cues": [
+      "tap",
+      "chime"
+    ],
+    "props": [
+      {
+        "name": "names",
+        "type": "[testo (≤ 16 car.), testo (≤ 16 car.)]",
+        "required": false,
+        "def": "[\"Giulia\",\"Marco\"]",
+        "desc": "Nomi della coppia (fittizi)"
+      },
+      {
+        "name": "date",
+        "type": "testo (≤ 24 car.)",
+        "required": false,
+        "def": "\"12 settembre\"",
+        "desc": "Data (fittizia)"
+      },
+      {
+        "name": "place",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "\"Villa dei Cipressi · Toscana\"",
+        "desc": "Luogo (fittizio)"
+      },
+      {
+        "name": "guestName",
+        "type": "testo (≤ 24 car.)",
+        "required": false,
+        "def": "\"Anna Rossi\"",
+        "desc": "Nome dell'invitato che conferma (fittizio)"
+      },
+      {
+        "name": "fields",
+        "type": "\"menu\" | \"accompagnatore\" | \"allergie\"[] (0–2)",
+        "required": false,
+        "def": "[\"menu\",\"accompagnatore\"]",
+        "desc": "Campi del modulo oltre a nome e presenza (massimo 2)"
+      },
+      {
+        "name": "menuChoice",
+        "type": "testo (≤ 20 car.)",
+        "required": false,
+        "def": "\"Vegetariano\"",
+        "desc": "Scelta di menu mostrata (fittizia)"
+      },
+      {
+        "name": "eyebrow",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Etichetta sopra la headline"
+      },
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Didascalia accanto al telefono (Playfair)"
+      },
+      {
+        "name": "shimmer",
+        "type": "testo",
+        "required": false,
+        "def": "",
+        "desc": "Sottostringa della headline con shimmer. Al massimo una per video"
+      }
+    ],
+    "preview": {
+      "props": {
+        "headline": "Pochi tap,\nnessun account."
+      },
+      "t": 3.6
+    },
+    "notes": [
+      "Tre tap con onda blush: presenza, \"Ci sarò\", \"Invia conferma\". Nessun campo password o login, per costruzione.",
+      "Nome dell'invitato e dati sono fittizi (`source: mock`)."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "names": {
+          "default": [
+            "Giulia",
+            "Marco"
+          ],
+          "description": "Nomi della coppia (fittizi)",
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string",
+              "maxLength": 16
+            },
+            {
+              "type": "string",
+              "maxLength": 16
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "date": {
+          "default": "12 settembre",
+          "description": "Data (fittizia)",
+          "type": "string",
+          "maxLength": 24
+        },
+        "place": {
+          "default": "Villa dei Cipressi · Toscana",
+          "description": "Luogo (fittizio)",
+          "type": "string",
+          "maxLength": 40
+        },
+        "guestName": {
+          "default": "Anna Rossi",
+          "description": "Nome dell'invitato che conferma (fittizio)",
+          "type": "string",
+          "maxLength": 24
+        },
+        "fields": {
+          "default": [
+            "menu",
+            "accompagnatore"
+          ],
+          "description": "Campi del modulo oltre a nome e presenza (massimo 2)",
+          "maxItems": 2,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "menu",
+              "accompagnatore",
+              "allergie"
+            ]
+          }
+        },
+        "menuChoice": {
+          "default": "Vegetariano",
+          "description": "Scelta di menu mostrata (fittizia)",
+          "type": "string",
+          "maxLength": 20
+        },
+        "eyebrow": {
+          "description": "Etichetta sopra la headline",
+          "type": "string",
+          "maxLength": 40
+        },
+        "headline": {
+          "description": "Didascalia accanto al telefono (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "shimmer": {
+          "description": "Sottostringa della headline con shimmer. Al massimo una per video",
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "GuestDashboard",
+    "summary": "Dashboard invitati: il contatore delle conferme sale e le righe si ordinano per stato. Dati fittizi.",
+    "mockup": true,
+    "duration": {
+      "min": 7,
+      "recommended": 8.5
+    },
+    "durationRule": "ultima conferma (1,4 s + 0,9 s × conferme) + 1,1 s di riordino + 1,5 s; minimo 4 s",
+    "cues": [
+      "tick",
+      "sort"
+    ],
+    "props": [
+      {
+        "name": "eyebrow",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Etichetta sopra la headline (es. nomi della coppia, fittizi)"
+      },
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Titolo sopra il contatore (Playfair)"
+      },
+      {
+        "name": "counterLabel",
+        "type": "testo (≤ 20 car.)",
+        "required": false,
+        "def": "\"Conferme\"",
+        "desc": "Etichetta del contatore"
+      },
+      {
+        "name": "guests",
+        "type": "{ name: testo (≤ 24 car.); status: \"confermato\" | \"in_attesa\" | \"non_puo\"; note: testo (≤ 40 car.); confirmedNote?: testo (≤ 40 car.) }[] (4–8)",
+        "required": false,
+        "def": "[{\"name\":\"Luca Bianchi\",\"status\":\"in_attesa\",\"note\":\"In attesa di ris…",
+        "desc": "Invitati (fittizi). `confirmedNote` = nota che compare quando un invitato in attesa conferma"
+      },
+      {
+        "name": "confirmCount",
+        "type": "intero 0–6",
+        "required": false,
+        "def": "4",
+        "desc": "Quanti invitati in attesa confermano durante la scena"
+      }
+    ],
+    "preview": {
+      "props": {
+        "eyebrow": "Giulia & Marco",
+        "headline": "Le conferme si ordinano\nda sole."
+      },
+      "t": 5.6
+    },
+    "notes": [
+      "Invitati, note e conteggi sono fittizi (`source: mock`).",
+      "Il contatore parte dai confermati di `guests` e sale di uno a ogni conferma; massimo 8 invitati."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "description": "Etichetta sopra la headline (es. nomi della coppia, fittizi)",
+          "type": "string",
+          "maxLength": 40
+        },
+        "headline": {
+          "description": "Titolo sopra il contatore (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "counterLabel": {
+          "default": "Conferme",
+          "description": "Etichetta del contatore",
+          "type": "string",
+          "maxLength": 20
+        },
+        "guests": {
+          "default": [
+            {
+              "name": "Luca Bianchi",
+              "status": "in_attesa",
+              "note": "In attesa di risposta",
+              "confirmedNote": "Menu carne · +1"
+            },
+            {
+              "name": "Sara Conti",
+              "status": "confermato",
+              "note": "Menu pesce · +1"
+            },
+            {
+              "name": "Paolo Greco",
+              "status": "in_attesa",
+              "note": "In attesa di risposta",
+              "confirmedNote": "Menu pesce"
+            },
+            {
+              "name": "Elena Marino",
+              "status": "non_puo",
+              "note": "Non può esserci"
+            },
+            {
+              "name": "Davide Ferri",
+              "status": "in_attesa",
+              "note": "In attesa di risposta",
+              "confirmedNote": "Menu vegetariano · allergia: noci"
+            },
+            {
+              "name": "Chiara Neri",
+              "status": "confermato",
+              "note": "Menu carne"
+            },
+            {
+              "name": "Marta Gallo",
+              "status": "in_attesa",
+              "note": "In attesa di risposta",
+              "confirmedNote": "Menu carne"
+            },
+            {
+              "name": "Anna Rossi",
+              "status": "in_attesa",
+              "note": "In attesa di risposta",
+              "confirmedNote": "Vegetariano · nessun accompagnatore"
+            }
+          ],
+          "description": "Invitati (fittizi). `confirmedNote` = nota che compare quando un invitato in attesa conferma",
+          "minItems": 4,
+          "maxItems": 8,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 24
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "confermato",
+                  "in_attesa",
+                  "non_puo"
+                ]
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 40
+              },
+              "confirmedNote": {
+                "type": "string",
+                "maxLength": 40
+              }
+            },
+            "required": [
+              "name",
+              "status",
+              "note"
+            ]
+          }
+        },
+        "confirmCount": {
+          "default": 4,
+          "description": "Quanti invitati in attesa confermano durante la scena",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        }
+      }
+    }
+  },
+  {
+    "name": "GiftFundCard",
+    "summary": "Sezione fondo regalo: l'IBAN (segnaposto grafico, mai reale) si copia con un tap e compare il grazie.",
+    "mockup": true,
+    "duration": {
+      "min": 5,
+      "recommended": 6
+    },
+    "durationRule": "tap a 1,9 s, ringraziamento a 2,4 s + 0,7 s + 1,5 s",
+    "cues": [
+      "tap",
+      "copy",
+      "chime"
+    ],
+    "props": [
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Titolo sopra la card (Playfair). Dire solo: lista nozze senza commissioni, bonifico diretto"
+      },
+      {
+        "name": "title",
+        "type": "testo (≤ 24 car.)",
+        "required": false,
+        "def": "\"Fondo regalo\"",
+        "desc": "Titolo della card"
+      },
+      {
+        "name": "subtitle",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "\"Bonifico diretto\"",
+        "desc": "Riga sotto il titolo"
+      },
+      {
+        "name": "copyLabel",
+        "type": "testo (≤ 20 car.)",
+        "required": false,
+        "def": "\"Copia IBAN\"",
+        "desc": "Etichetta del bottone prima del tap"
+      },
+      {
+        "name": "copiedLabel",
+        "type": "testo (≤ 20 car.)",
+        "required": false,
+        "def": "\"Copiato\"",
+        "desc": "Etichetta del bottone dopo il tap"
+      },
+      {
+        "name": "thankYou",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "\"Grazie di cuore!\"",
+        "desc": "Messaggio di ringraziamento che compare dopo la copia"
+      }
+    ],
+    "preview": {
+      "props": {
+        "headline": "Lista nozze\nsenza commissioni."
+      },
+      "t": 3.8
+    },
+    "notes": [
+      "L'IBAN è sempre un segnaposto grafico (puntini): non esiste modo di mostrare un IBAN reale.",
+      "Claim ammesso: lista nozze / fondo regalo senza commissioni, bonifico diretto (PRODOTTO_FATTI)."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "headline": {
+          "description": "Titolo sopra la card (Playfair). Dire solo: lista nozze senza commissioni, bonifico diretto",
+          "type": "string",
+          "maxLength": 60
+        },
+        "title": {
+          "default": "Fondo regalo",
+          "description": "Titolo della card",
+          "type": "string",
+          "maxLength": 24
+        },
+        "subtitle": {
+          "default": "Bonifico diretto",
+          "description": "Riga sotto il titolo",
+          "type": "string",
+          "maxLength": 40
+        },
+        "copyLabel": {
+          "default": "Copia IBAN",
+          "description": "Etichetta del bottone prima del tap",
+          "type": "string",
+          "maxLength": 20
+        },
+        "copiedLabel": {
+          "default": "Copiato",
+          "description": "Etichetta del bottone dopo il tap",
+          "type": "string",
+          "maxLength": 20
+        },
+        "thankYou": {
+          "default": "Grazie di cuore!",
+          "description": "Messaggio di ringraziamento che compare dopo la copia",
+          "type": "string",
+          "maxLength": 40
+        }
+      }
+    }
+  },
+  {
+    "name": "TableSeating",
+    "summary": "Piantina della sala: gli invitati vengono trascinati dai tavoli ai posti. Etichetta Premium sempre visibile.",
+    "mockup": true,
+    "duration": {
+      "min": 6,
+      "recommended": 7.5
+    },
+    "durationRule": "1,0 s + invitati × 0,55 s + 0,6 s di trascinamento + 1,5 s; minimo 4 s",
+    "cues": [
+      "drop"
+    ],
+    "props": [
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Titolo accanto alla piantina (Playfair)"
+      },
+      {
+        "name": "tables",
+        "type": "{ label: testo (≤ 14 car.); seats: intero 4–8 }[] (2–6)",
+        "required": false,
+        "def": "[{\"label\":\"Tavolo 1\",\"seats\":6},{\"label\":\"Tavolo 2\",\"seats\":6},{\"labe…",
+        "desc": "Tavoli della sala (etichette fittizie) e numero di posti"
+      },
+      {
+        "name": "guests",
+        "type": "testo (≤ 12 car.)[] (2–12)",
+        "required": false,
+        "def": "[\"Anna\",\"Luca\",\"Sara\",\"Paolo\",\"Elena\",\"Davide\"]",
+        "desc": "Nomi degli invitati da sistemare (fittizi)"
+      }
+    ],
+    "preview": {
+      "props": {
+        "headline": "Il piano tavoli,\ncon drag and drop."
+      },
+      "t": 3.6
+    },
+    "notes": [
+      "Il piano tavoli è Premium: l'etichetta Premium è sempre mostrata, non si può togliere (decisione 13).",
+      "Nomi e tavoli sono fittizi (`source: mock`). Massimo 12 invitati e 6 tavoli."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "headline": {
+          "description": "Titolo accanto alla piantina (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "tables": {
+          "default": [
+            {
+              "label": "Tavolo 1",
+              "seats": 6
+            },
+            {
+              "label": "Tavolo 2",
+              "seats": 6
+            },
+            {
+              "label": "Tavolo 3",
+              "seats": 6
+            },
+            {
+              "label": "Tavolo 4",
+              "seats": 6
+            }
+          ],
+          "description": "Tavoli della sala (etichette fittizie) e numero di posti",
+          "minItems": 2,
+          "maxItems": 6,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxLength": 14
+              },
+              "seats": {
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 8
+              }
+            },
+            "required": [
+              "label",
+              "seats"
+            ]
+          }
+        },
+        "guests": {
+          "default": [
+            "Anna",
+            "Luca",
+            "Sara",
+            "Paolo",
+            "Elena",
+            "Davide"
+          ],
+          "description": "Nomi degli invitati da sistemare (fittizi)",
+          "minItems": 2,
+          "maxItems": 12,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "PlanningChecklist",
+    "summary": "Planning: checklist che si spunta, budget a barre e timeline del giorno. Etichetta Premium sempre visibile.",
+    "mockup": true,
+    "duration": {
+      "min": 6,
+      "recommended": 7.5
+    },
+    "durationRule": "ultima voce tra spunte (1,0 s + 0,5 s a voce), barre e timeline (2,6 s + 0,35 s a punto) + 1,5 s; minimo 4 s",
+    "cues": [
+      "tick"
+    ],
+    "props": [
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Titolo sopra le card (Playfair)"
+      },
+      {
+        "name": "items",
+        "type": "testo (≤ 30 car.)[] (3–5)",
+        "required": false,
+        "def": "[\"Scegliere la location\",\"Prenotare il catering\",\"Inviare il salva la…",
+        "desc": "Voci della checklist (fittizie), spuntate in ordine"
+      },
+      {
+        "name": "budget",
+        "type": "{ label: testo (≤ 16 car.); pct: numero 5–100 }[] (2–4)",
+        "required": false,
+        "def": "[{\"label\":\"Location\",\"pct\":80},{\"label\":\"Catering\",\"pct\":55},{\"label\"…",
+        "desc": "Barre del budget: etichetta e riempimento in % (fittizi, senza importi)"
+      },
+      {
+        "name": "timeline",
+        "type": "{ time?: testo (≤ 6 car.); label: testo (≤ 14 car.) }[] (3–5)",
+        "required": false,
+        "def": "[{\"time\":\"16:00\",\"label\":\"Cerimonia\"},{\"time\":\"17:30\",\"label\":\"Aperit…",
+        "desc": "Timeline del giorno (fittizia)"
+      }
+    ],
+    "preview": {
+      "props": {
+        "headline": "Tutto il planning\nin un unico posto."
+      },
+      "t": 5.2
+    },
+    "notes": [
+      "Planning (checklist, budget, fornitori, timeline) è Premium: l'etichetta Premium è sempre mostrata.",
+      "Voci, percentuali e orari sono fittizi (`source: mock`); il budget non mostra importi."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "headline": {
+          "description": "Titolo sopra le card (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "items": {
+          "default": [
+            "Scegliere la location",
+            "Prenotare il catering",
+            "Inviare il salva la data",
+            "Scegliere la musica"
+          ],
+          "description": "Voci della checklist (fittizie), spuntate in ordine",
+          "minItems": 3,
+          "maxItems": 5,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30
+          }
+        },
+        "budget": {
+          "default": [
+            {
+              "label": "Location",
+              "pct": 80
+            },
+            {
+              "label": "Catering",
+              "pct": 55
+            },
+            {
+              "label": "Musica",
+              "pct": 30
+            }
+          ],
+          "description": "Barre del budget: etichetta e riempimento in % (fittizi, senza importi)",
+          "minItems": 2,
+          "maxItems": 4,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxLength": 16
+              },
+              "pct": {
+                "type": "number",
+                "minimum": 5,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "label",
+              "pct"
+            ]
+          }
+        },
+        "timeline": {
+          "default": [
+            {
+              "time": "16:00",
+              "label": "Cerimonia"
+            },
+            {
+              "time": "17:30",
+              "label": "Aperitivo"
+            },
+            {
+              "time": "20:00",
+              "label": "Cena"
+            },
+            {
+              "time": "23:00",
+              "label": "Torta"
+            }
+          ],
+          "description": "Timeline del giorno (fittizia)",
+          "minItems": 3,
+          "maxItems": 5,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "time": {
+                "type": "string",
+                "maxLength": 6
+              },
+              "label": {
+                "type": "string",
+                "maxLength": 14
+              }
+            },
+            "required": [
+              "label"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "PriceCard",
+    "summary": "Card dei prezzi (mensile e/o una tantum) letti da file. Senza elenco di funzioni: i file non dicono cosa includa ciascun piano.",
+    "mockup": false,
+    "duration": {
+      "min": 4,
+      "recommended": 6
+    },
+    "durationRule": "minimo 4 s: la seconda card entra a 0,8 s e resta ferma almeno 1,5 s",
+    "cues": [],
+    "props": [
+      {
+        "name": "eyebrow",
+        "type": "testo (≤ 30 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Etichetta sopra la headline"
+      },
+      {
+        "name": "headline",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Titolo sopra le card (Playfair)"
+      },
+      {
+        "name": "plans",
+        "type": "{ kind: \"mensile\" | \"unaTantum\"; label?: testo (≤ 20 car.); unit?: testo (≤ 30 car.) }[] (1–2)",
+        "required": false,
+        "def": "[{\"kind\":\"mensile\"},{\"kind\":\"unaTantum\"}]",
+        "desc": "Card da mostrare. Etichetta e unità hanno un default; il prezzo viene sempre da file"
+      },
+      {
+        "name": "priceRef",
+        "type": "testo",
+        "required": false,
+        "def": "\"brand/prezzi.json\"",
+        "desc": "File da cui sono letti i prezzi (content/commercial.ts se esiste, altrimenti brand/prezzi.json)"
+      },
+      {
+        "name": "prices",
+        "type": "{ valuta: \"EUR\"; mensile: numero; unaTantum: numero; source: testo }",
+        "required": false,
+        "def": "",
+        "desc": "Compilato da `resolve` (non scriverlo a mano). Se manca il render mostra [PREZZO]"
+      }
+    ],
+    "preview": {
+      "props": {
+        "eyebrow": "Prezzi",
+        "plans": [
+          {
+            "kind": "mensile"
+          },
+          {
+            "kind": "unaTantum"
+          }
+        ]
+      },
+      "t": 2.8
+    },
+    "notes": [
+      "I prezzi non sono mai nelle props scritte dal regista: `resolve` li legge da content/commercial.ts (se esiste) o da brand/prezzi.json (EUR 12 al mese, EUR 79 una tantum, confermati il 2026-11-13).",
+      "Senza file leggibile la scena mostra [PREZZO] e il lint dello storyboard segnala E_PRICE_UNVERIFIED (solo bozza).",
+      "Non dire cosa include ciascun piano e non scrivere \"Premium\" accanto ai prezzi: nei file non è detto."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "description": "Etichetta sopra la headline",
+          "type": "string",
+          "maxLength": 30
+        },
+        "headline": {
+          "description": "Titolo sopra le card (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "plans": {
+          "default": [
+            {
+              "kind": "mensile"
+            },
+            {
+              "kind": "unaTantum"
+            }
+          ],
+          "description": "Card da mostrare. Etichetta e unità hanno un default; il prezzo viene sempre da file",
+          "minItems": 1,
+          "maxItems": 2,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "mensile",
+                  "unaTantum"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "maxLength": 20
+              },
+              "unit": {
+                "type": "string",
+                "maxLength": 30
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          }
+        },
+        "priceRef": {
+          "default": "brand/prezzi.json",
+          "description": "File da cui sono letti i prezzi (content/commercial.ts se esiste, altrimenti brand/prezzi.json)",
+          "type": "string"
+        },
+        "prices": {
+          "description": "Compilato da `resolve` (non scriverlo a mano). Se manca il render mostra [PREZZO]",
+          "type": "object",
+          "properties": {
+            "valuta": {
+              "type": "string",
+              "const": "EUR"
+            },
+            "mensile": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "unaTantum": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "valuta",
+            "mensile",
+            "unaTantum",
+            "source"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "KineticList",
+    "summary": "Elenco animato: una voce alla volta con icona semplice, le precedenti si attenuano.",
+    "mockup": false,
+    "duration": {
+      "min": 5.5,
+      "recommended": 7.5
+    },
+    "durationRule": "minima 0,5 s + (voci − 1) × 1,4 s + 0,7 s + 1,5 s; consigliata con `step` (2 s di default) a voce",
+    "cues": [
+      "tick"
+    ],
+    "props": [
+      {
+        "name": "eyebrow",
+        "type": "testo (≤ 30 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Etichetta sopra il titolo"
+      },
+      {
+        "name": "title",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Titolo sopra l'elenco (Playfair)"
+      },
+      {
+        "name": "items",
+        "type": "{ icon: \"check\" | \"heart\" | \"calendar\" | \"gift\" | \"users\" | \"table\" | \"list\" | \"phone\" | \"link\" | \"clock\" | \"mail\"; text: testo (≤ 48 car.) }[] (2–5)",
+        "required": true,
+        "def": "",
+        "desc": "Voci dell'elenco, mostrate una dopo l'altra"
+      },
+      {
+        "name": "step",
+        "type": "numero 1.4–4",
+        "required": false,
+        "def": "2",
+        "desc": "Secondi tra una voce e la successiva (si accorcia se lo shot è corto)"
+      }
+    ],
+    "preview": {
+      "props": {
+        "eyebrow": "MatrimonioSemplice",
+        "title": "Tutto in un posto",
+        "items": [
+          {
+            "icon": "phone",
+            "text": "Il sito, pronto in pochi minuti"
+          },
+          {
+            "icon": "check",
+            "text": "Conferme senza account"
+          },
+          {
+            "icon": "gift",
+            "text": "Lista nozze senza commissioni"
+          }
+        ]
+      },
+      "t": 6.2
+    },
+    "notes": [
+      "Massimo 5 voci da 8 parole. Ogni voce deve essere un claim di PRODOTTO_FATTI.",
+      "Durata: circa 2 s a voce (consigliata), 1,4 s a voce al minimo; se lo shot è corto il passo si accorcia da solo."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "description": "Etichetta sopra il titolo",
+          "type": "string",
+          "maxLength": 30
+        },
+        "title": {
+          "description": "Titolo sopra l'elenco (Playfair)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "items": {
+          "minItems": 2,
+          "maxItems": 5,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string",
+                "enum": [
+                  "check",
+                  "heart",
+                  "calendar",
+                  "gift",
+                  "users",
+                  "table",
+                  "list",
+                  "phone",
+                  "link",
+                  "clock",
+                  "mail"
+                ],
+                "description": "Icona: check, heart, calendar, gift, users, table, list, phone, link, clock, mail"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 48,
+                "description": "Testo, al massimo 8 parole"
+              }
+            },
+            "required": [
+              "icon",
+              "text"
+            ]
+          },
+          "description": "Voci dell'elenco, mostrate una dopo l'altra"
+        },
+        "step": {
+          "default": 2,
+          "description": "Secondi tra una voce e la successiva (si accorcia se lo shot è corto)",
+          "type": "number",
+          "minimum": 1.4,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "items"
+      ]
+    }
+  },
+  {
+    "name": "EndCard",
+    "summary": "Chiusura: logo, frase, un solo CTA a pillola (con tap simulato) e URL.",
+    "mockup": false,
+    "duration": {
+      "min": 4,
+      "recommended": 5
+    },
+    "durationRule": "minimo 4 s: la pillola entra entro 1,0 s e resta ferma almeno 3 s (BRAND_VIDEO §6)",
+    "cues": [
+      "press"
+    ],
+    "props": [
+      {
+        "name": "tagline",
+        "type": "testo (≤ 50 car.)",
+        "required": false,
+        "def": "",
+        "desc": "Frase di chiusura in Playfair corsivo. `*parola*` = corsivo, `\\n` = a capo"
+      },
+      {
+        "name": "cta",
+        "type": "testo (≤ 40 car.)",
+        "required": false,
+        "def": "\"Crea il tuo sito matrimonio\"",
+        "desc": "Testo della pillola CTA (copy ufficiale, decisione 6)"
+      },
+      {
+        "name": "url",
+        "type": "testo (≤ 60 car.)",
+        "required": false,
+        "def": "\"www.matrimoniosemplice.com\"",
+        "desc": "URL sotto la pillola (ufficiale, decisione 6)"
+      },
+      {
+        "name": "wordmark",
+        "type": "sì/no",
+        "required": false,
+        "def": "true",
+        "desc": "Mostra il nome MatrimonioSemplice sotto il logo"
+      },
+      {
+        "name": "press",
+        "type": "sì/no",
+        "required": false,
+        "def": "true",
+        "desc": "Simula il tap sulla pillola (onda blush)"
+      }
+    ],
+    "preview": {
+      "props": {
+        "tagline": "Dal caos\nall'*RSVP.*"
+      },
+      "t": 3.2
+    },
+    "notes": [
+      "Un solo CTA per end card. Il testo del CTA deve coincidere con `brief.cta.label`.",
+      "Il logo è assets/logo/icon.svg (solo icona): il nome è reso come testo Playfair."
+    ],
+    "propsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "tagline": {
+          "description": "Frase di chiusura in Playfair corsivo. `*parola*` = corsivo, `\\n` = a capo",
+          "type": "string",
+          "maxLength": 50
+        },
+        "cta": {
+          "default": "Crea il tuo sito matrimonio",
+          "description": "Testo della pillola CTA (copy ufficiale, decisione 6)",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "url": {
+          "default": "www.matrimoniosemplice.com",
+          "description": "URL sotto la pillola (ufficiale, decisione 6)",
+          "type": "string",
+          "maxLength": 60
+        },
+        "wordmark": {
+          "default": true,
+          "description": "Mostra il nome MatrimonioSemplice sotto il logo",
+          "type": "boolean"
+        },
+        "press": {
+          "default": true,
+          "description": "Simula il tap sulla pillola (onda blush)",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+]

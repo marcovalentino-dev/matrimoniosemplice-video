@@ -35,10 +35,10 @@ Sigle fonte: **S** = `01_STRUTTURA_PROGETTO.md`, **T** = `02_TIPO_DI_PROGETTO.md
 
 | Voce | Valore trovato nei file | Stato |
 |---|---|---|
-| Abbonamento mensile | EUR 12/mese (T "Modalità di pricing rilevate") | **DA VERIFICARE in `content/commercial.ts`** |
-| Una tantum | EUR 79 (T "Modalità di pricing rilevate") | **DA VERIFICARE in `content/commercial.ts`** |
+| Abbonamento mensile | EUR 12/mese (T "Modalità di pricing rilevate") | **CONFERMATO dall'utente il 2026-11-13**; valori in `brand/prezzi.json` |
+| Una tantum | EUR 79 (T "Modalità di pricing rilevate") | **CONFERMATO dall'utente il 2026-11-13**; valori in `brand/prezzi.json` |
 
-Non mostrare prezzi nei video finché non sono riletti nel file `content/commercial.ts` del sito (la fonte S lo indica come layer commerciale condiviso). Il file non è in questo repository.
+I prezzi si mostrano solo se letti da `brand/prezzi.json` (EUR 12/mese, EUR 79 una tantum, confermati dall'utente il 2026-11-13). `content/commercial.ts` non è in questo repository: se il sito cambia i prezzi, aggiornare `prezzi.json` a mano. Non dire cosa includa ciascun piano: nei file non c'è.
 
 ## Non verificabile / da non dire
 

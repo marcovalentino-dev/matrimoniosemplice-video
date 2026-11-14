@@ -5,5 +5,5 @@
     "allowImportingTsExtensions": true,
     "erasableSyntaxOnly": true, "verbatimModuleSyntax": true, "types": ["node"]
   },
-  "include": ["cli", "director", "schemas", "theme", "scenes", "render", "audio", "qa", "utils", "test"]
+  "include": ["cli", "director", "schemas", "theme", "scenes", "render", "audio", "qa", "make", "utils", "test"]
 }
